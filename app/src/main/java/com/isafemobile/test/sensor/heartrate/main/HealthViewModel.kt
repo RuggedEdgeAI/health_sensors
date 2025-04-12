@@ -1,5 +1,6 @@
 package com.isafemobile.test.sensor.heartrate.main
 
+import android.annotation.SuppressLint
 import android.app.Application
 import android.content.ComponentName
 import android.content.Intent
@@ -95,6 +96,7 @@ class HealthViewModel(application: Application) : AndroidViewModel(application) 
         stopMonitoring()
     }
 
+    @SuppressLint("HandlerLeak")
     private inner class MyHandler : Handler(Looper.getMainLooper()) {
         override fun handleMessage(msg: Message) {
             super.handleMessage(msg)

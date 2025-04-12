@@ -6,7 +6,7 @@ customized design pattern to read heart-rate sensor specially made for IS.SW1.
 
 >🛠️ Install ADB Wi-Fi to ease debugging of the IS.SW1 sensors without the need for a dock station that often disconnects upon movement. [Check it out here!](https://plugins.jetbrains.com/plugin/14969-adb-wi-fi)
 
-Debug steps are taked to observe sensor behaviour and the Apps reponses. the App always respond to any sensor data comes from sensor-device [check step 2.]
+Debug steps are taken to observe sensor behaviour and the Apps respond. the App always respond to any sensor data comes from sensor-device [check step 2.]
 
 
 ## step 1. Enable debuggable-mode:
@@ -27,6 +27,12 @@ Debug steps are taked to observe sensor behaviour and the Apps reponses. the App
 
  ----
 
+## just in case, if you need to wake up the screen
+wake up the screen upon App Run instead of pressing the hard key
+``` adb shell input keyevent KEYCODE_WAKEUP ```
+
+ ----
+
 ## 🖼️ Screenshots
 
-<img src="/demo/gif_demo_1.gif" width="250"/> 
+<img src="/demo/gif_demo_1.gif" width="320" alt=""/> 

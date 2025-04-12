@@ -1,5 +1,6 @@
 package com.isafemobile.test.sensor.heartrate.main
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.animation.AlphaAnimation
 import androidx.activity.viewModels
@@ -23,6 +24,7 @@ class MainActivity : AppCompatActivity() {
         healthViewModel.startMonitoring()
     }
 
+    @SuppressLint("SetTextI18n")
     private fun observer() {
         lifecycleScope.launch {
             healthViewModel.heartRate.collect { rate ->
