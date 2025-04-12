@@ -11,33 +11,40 @@ import kotlinx.coroutines.launch
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
-    private val heartRateViewModel: HeartRateViewModel by viewModels()
+    private val healthViewModel: HealthViewModel by viewModels()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         observer()
 
-        heartRateViewModel.getInitial()
-        binding.buttonStart.setOnClickListener {
-            binding.buttonStart.isEnabled = false
-            binding.buttonStart.setText("Detecting...")
-            heartRateViewModel.startMonitoring()
-        }
+        healthViewModel.getInitial()
+        healthViewModel.startMonitoring()
     }
 
     private fun observer() {
         lifecycleScope.launch {
-            heartRateViewModel.heartRate.collect { rate ->
+            healthViewModel.heartRate.collect { rate ->
                 binding.textViewHeartRate.text = "$rate/min"
-                binding.buttonStart.isEnabled = true
-                binding.buttonStart.setText("Start")
                 val fadeInOut = AlphaAnimation(1f, 0f).apply {
-                    duration = 300 // Duration of flash effect
+                    duration = 300
                     repeatMode = AlphaAnimation.REVERSE
                     repeatCount = 1
                 }
                 binding.imageViewHeartRate.startAnimation(fadeInOut)
+            }
+        }
+
+        lifecycleScope.launch {
+            healthViewModel.spO2.collect { spo ->
+                binding.textViewSpo2.text = "$spo%"
+                val fadeInOut = AlphaAnimation(1f, 0f).apply {
+                    duration = 300
+                    repeatMode = AlphaAnimation.REVERSE
+                    repeatCount = 1
+                }
+                binding.imageViewSpo2.startAnimation(fadeInOut)
             }
         }
     }
