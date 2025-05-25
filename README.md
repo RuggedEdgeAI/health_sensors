@@ -1,10 +1,10 @@
 ## Heart-Rate-Sensor App:
-customized design pattern to read heart-rate sensor specially made for IS.SW1.
+customized design pattern to read heart-rate sensor specially made for RuggedWatch.
 
 
 ##  Analyze & Inspection
 
->🛠️ Install ADB Wi-Fi to ease debugging of the IS.SW1 sensors without the need for a dock station that often disconnects upon movement. [Check it out here!](https://plugins.jetbrains.com/plugin/14969-adb-wi-fi)
+>🛠️ Install ADB Wi-Fi to ease debugging of the EdgeWatch sensors without the need for a dock station that often disconnects upon movement. [Check it out here!](https://plugins.jetbrains.com/plugin/14969-adb-wi-fi)
 
 Debug steps are taken to observe sensor behaviour and the Apps respond. the App always respond to any sensor data comes from sensor-device [check step 2.]
 
